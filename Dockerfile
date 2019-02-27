@@ -1,7 +1,12 @@
-FROM openjdk:11.0.1-jre-slim-sid
+FROM maven:3.6-jdk-11-slim as BUILD
+COPY . /src
+WORKDIR /src
+RUN mvn install -DskipTests
 
-CMD ["/usr/bin/java", "-jar", "/app/app.jar"]
+FROM openjdk:11.0.1-jre-slim-stretch
+EXPOSE 8080
+WORKDIR /app
+ARG JAR=hello-0.0.1-BASIC.jar
 
-# Add the service itself
-ARG JAR_FILE=demo-0.0.1-SNAPSHOT.jar
-COPY target/${JAR_FILE} /app/app.jar
+COPY --from=BUILD /src/target/$JAR /app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
