@@ -1,0 +1,8 @@
+spring.application.name: hello
+spring.profiles: default,development,kubernetes
+spring.cloud.kubernetes.enabled: true
+spring.cloud.kubernetes.config.enabled: true
+spring.cloud.kubernetes.reload.enabled: true
+spring.cloud.kubernetes.reload.mode: event
+spring.cloud.kubernetes.reload.strategy: refresh
+management.endpoint.restart.enabled: true
