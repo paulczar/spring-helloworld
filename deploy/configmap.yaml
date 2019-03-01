@@ -3,4 +3,7 @@ kind: ConfigMap
 metadata:
   name: hello
 data:
-  message: Hello World
+  application.yaml: |
+    message: "Hello World, this is from application.yaml"
+    test: nope
+    potato: bacon

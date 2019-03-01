@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: spring
+  name: hello
 rules:
 - apiGroups:
   - ""
@@ -15,15 +15,16 @@ rules:
   verbs:
   - get
   - list
+  - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: spring
+  name: hello
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: spring
+  name: hello
 subjects:
 - kind: ServiceAccount
   name: default

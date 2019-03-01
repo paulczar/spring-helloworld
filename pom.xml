@@ -64,7 +64,8 @@
                 <version>1.0.1</version>
                 <configuration>
                 <to>
-                    <image>paulczar/spring-hello</image>
+                    <image>paulczar/spring-hello:latest</image>
+                    <tags>0.0.1-SNAPSHOT</tags>
                 </to>
                 </configuration>
             </plugin>
